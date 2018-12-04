@@ -78,7 +78,7 @@ public partial class Pay : System.Web.UI.Page
         string Seats, Payment, DateNTime;
         int FilmId, UserId;
         System.Data.SqlClient.SqlDataReader SqlDataReader1;
-        string constr = @"Data Source=NICHOLAS\SQLEXPRESS;Initial Catalog=FlixTix;Integrated Security=True";
+        string constr = @"Data Source=DESKTOP-2JDMA37\SQLEXPRESS;Initial Catalog=FlixTix;Integrated Security=True";
         sqlConnection1 = new System.Data.SqlClient.SqlConnection(constr);			//the command object
         //get filmId
         sqlCommand1 = new SqlCommand("SELECT Id FROM Films WHERE Title=@Title", sqlConnection1);

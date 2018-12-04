@@ -27,6 +27,7 @@
             <div class="container ">
                 <h4 class="auto-style3">S<span class="auto-style5">elect a Movie below, then choose your seats on the right.</span></h4>
                 <div class="list-group" id="movieList" runat="server">
+                    
                 </div>
             </div> 
         </div>

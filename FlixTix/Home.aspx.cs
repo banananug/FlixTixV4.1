@@ -19,7 +19,7 @@ public partial class Home : System.Web.UI.Page
     {
         System.Data.SqlClient.SqlDataReader SqlDataReader1;
         //the connection object
-        string constr = @"Data Source=NICHOLAS\SQLEXPRESS;Initial Catalog=FlixTix;Integrated Security=True";
+        string constr = @"Data Source=DESKTOP-2JDMA37\SQLEXPRESS;Initial Catalog=FlixTix;Integrated Security=True";
         sqlConnection1 = new System.Data.SqlClient.SqlConnection(constr);			//the command object
         sqlCommand1 = new SqlCommand("SELECT * FROM Users WHERE Username=@Username AND Password=@Password", sqlConnection1);
         sqlCommand1.Parameters.AddWithValue("@Username", txtUserName.Text);

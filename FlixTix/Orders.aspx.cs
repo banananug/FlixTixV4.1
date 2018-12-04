@@ -13,7 +13,7 @@ public partial class Orders : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         System.Data.SqlClient.SqlDataReader SqlDataReader1,SqlDataReader2;
-        string constr = @"Data Source=NICHOLAS\SQLEXPRESS;Initial Catalog=FlixTix;Integrated Security=True";
+        string constr = @"Data Source=DESKTOP-2JDMA37\SQLEXPRESS;Initial Catalog=FlixTix;Integrated Security=True";
         sqlConnection1 = new System.Data.SqlClient.SqlConnection(constr);
         sqlConnection2 = new System.Data.SqlClient.SqlConnection(constr);
         string snackStr="";

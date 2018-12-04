@@ -19,7 +19,7 @@ public partial class Buy_A_Ticket : System.Web.UI.Page
     {
         if (Request.Cookies["UniqueID"] == null)
             Response.Redirect("Home.aspx");
-        string constr = @"Data Source=NICHOLAS\SQLEXPRESS;Initial Catalog=FlixTix;Integrated Security=True";
+        string constr = @"Data Source=DESKTOP-2JDMA37\SQLEXPRESS;Initial Catalog=FlixTix;Integrated Security=True";
         sqlConnection1 = new System.Data.SqlClient.SqlConnection(constr);			//the command object
         System.Data.SqlClient.SqlDataReader SqlDataReader1;
         //get user id and save with Session
@@ -34,7 +34,7 @@ public partial class Buy_A_Ticket : System.Web.UI.Page
 
         //LOADING MOVIES FROM DATABASE AND MAKING LINK BUTTONS 
         sqlCommand1 = new SqlCommand("SELECT * FROM Films", sqlConnection1);
-        sqlCommand1.Connection.Open();					//open the command connection
+        sqlCommand1.Connection.Open();//open the command connection
         SqlDataReader1 = sqlCommand1.ExecuteReader();	//the Reader gets the selected records
         while (SqlDataReader1.Read())
         {
@@ -93,7 +93,7 @@ public partial class Buy_A_Ticket : System.Web.UI.Page
         string id = btn.ID;
         System.Data.SqlClient.SqlDataReader SqlDataReader1;
         //the connection object
-        string constr = @"Data Source=NICHOLAS\SQLEXPRESS;Initial Catalog=FlixTix;Integrated Security=True";
+        string constr = @"Data Source=DESKTOP-2JDMA37\SQLEXPRESS;Initial Catalog=FlixTix;Integrated Security=True";
         sqlConnection1 = new System.Data.SqlClient.SqlConnection(constr);			//the command object
         //CHANGE POSTER AND FILM NAME LABEL
         sqlCommand1 = new SqlCommand("SELECT * FROM Films WHERE Poster=@poster", sqlConnection1);
@@ -152,5 +152,10 @@ public partial class Buy_A_Ticket : System.Web.UI.Page
         }
         sqlCommand1.Connection.Close();         //close the command object
         SqlDataReader1.Close();
+    }
+
+    protected void FormView1_PageIndexChanging(object sender, FormViewPageEventArgs e)
+    {
+
     }
 }

@@ -25,6 +25,17 @@ CREATE TABLE [Users] (
 )
 GO
 
+CREATE TABLE [Orders] (
+	[Id] [smallint] IDENTITY(1,1) NOT NULL  ,
+	[FilmId] [smallint] NOT NULL,
+	[UserId] [smallint] NOT NULL,
+	[Seats] nvarchar(150),
+	[Payment] nvarchar(20),
+	[DateNTime] nvarchar(50)
+	 	  
+)
+GO
+
 CREATE TABLE [Ticket] (
 	[Ticket_Id] [smallint] IDENTITY(1,1) NOT NULL,
 	[Ticket_Price] smallint,
@@ -35,7 +46,7 @@ GO
 CREATE TABLE [Reservation](
 	[Reservation_Id][smallint] IDENTITY(1,1) NOT NULL,
 	[Showing_Id] smallint,
-	[User_Id] smallint,
+	[Users_Id] smallint,
 	[Seat_Reserved_Id] smallint,
 	[Ticket_Id] smallint,
 )
@@ -89,6 +100,11 @@ ADD
 CONSTRAINT [PK_User] PRIMARY KEY (Id)
 GO
 
+ALTER TABLE Orders 
+ADD
+CONSTRAINT [PK_Orders] PRIMARY KEY (Id)
+GO
+
 ALTER TABLE Ticket
 ADD
 CONSTRAINT [PK_Ticket] PRIMARY KEY(Ticket_Id)
@@ -127,7 +143,7 @@ GO
 ALTER TABLE Reservation
 ADD
 CONSTRAINT [FK_Showing_Id] FOREIGN KEY (Showing_Id) REFERENCES Showing(Showing_Id),
-CONSTRAINT [FK_User_Id] FOREIGN KEY (User_Id) REFERENCES Users(Id),
+CONSTRAINT [FK_User_Id] FOREIGN KEY (Users_Id) REFERENCES Users(Id),
 CONSTRAINT [FK_Seat_Reserved_Id] FOREIGN KEY (Seat_Reserved_Id) REFERENCES Seat_Reserved(Seat_Reserved_Id)
 GO
 
